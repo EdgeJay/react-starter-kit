@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# VS Code settings
+.vscode
+
+# Production build files
+build
+
+# macOS specific files
+.DS_store
