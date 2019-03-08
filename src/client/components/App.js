@@ -1,16 +1,30 @@
 import React from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
-import styled from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styledNormalize from 'styled-normalize';
+import defaultTheme from '../themes';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const Container = styled.div`
-  padding: 2rem;
+const GlobalStyle = createGlobalStyle`
+  ${styledNormalize}
+
+  body {
+    font-size: ${props => props.theme.fontSize};
+    font-family: ${props => props.theme.fontFamily};
+  }
 `;
 
 function App() {
-  return <Container />;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <React.Fragment>
+        <GlobalStyle />
+        <p>Foo!</p>
+      </React.Fragment>
+    </ThemeProvider>
+  );
 }
 
 export default hot(App);
