@@ -25,7 +25,7 @@
     "node": "10.14.0"
   },
   "author": "Wu Huijie",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/edgejay/react-starter-kit/issues"
   },
