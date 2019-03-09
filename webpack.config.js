@@ -13,21 +13,24 @@ if (!nodeEnvAlreadyDefined) {
 }
 
 function setupResolve() {
+  const resolve = {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  };
+
   if (inDevelopmentMode) {
-    return {
-      alias: {
-        'react-dom': '@hot-loader/react-dom',
-      },
+    resolve.alias = {
+      'react-dom': '@hot-loader/react-dom',
     };
   }
-  return {};
+
+  return resolve;
 }
 
 module.exports = {
   target: 'web',
   mode: process.env.NODE_ENV,
   entry: {
-    main: './src/client/index.js',
+    main: './src/client/index.tsx',
   },
   output: {
     path: path.resolve(__dirname, './build'),
@@ -56,6 +59,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+      },
+      {
         test: /\.js$/,
         loader: 'eslint-loader',
         enforce: 'pre',
@@ -65,6 +72,11 @@ module.exports = {
           // eslint-disable-next-line global-require
           formatter: require('eslint-friendly-formatter'),
         },
+      },
+      {
+        test: /\.js$/,
+        loader: 'source-map-loader',
+        enforce: 'pre',
       },
       {
         test: /\.js$/,
@@ -126,5 +138,6 @@ module.exports = {
     port: 3000,
     hot: true,
   },
+  devtool: 'source-map',
   resolve: setupResolve(),
 };

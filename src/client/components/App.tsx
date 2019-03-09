@@ -1,13 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import defaultTheme from '../themes';
+import defaultTheme, { ThemeType } from '../themes';
+import Hello from './Hello';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle =
+  createGlobalStyle <
+  { theme: ThemeType } >
+  `
   ${styledNormalize}
 
   body {
@@ -21,7 +25,7 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <React.Fragment>
         <GlobalStyle />
-        <p>Foo!</p>
+        <Hello compiler="Typescript" framework="React" />
       </React.Fragment>
     </ThemeProvider>
   );

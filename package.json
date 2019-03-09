@@ -33,6 +33,8 @@
   "dependencies": {
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
+    "@types/react-redux": "^7.0.3",
+    "@types/styled-components": "^4.1.12",
     "dotenv": "^6.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0",

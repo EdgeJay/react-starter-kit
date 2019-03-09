@@ -2,7 +2,7 @@
   "root": true,
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 7,
+    "ecmaVersion": 5,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -24,7 +24,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
     "no-underscore-dangle": ["error", { "allowAfterThis": true }]
