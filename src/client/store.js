@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { createStore, compose, applyMiddleware, bindActionCreators } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';

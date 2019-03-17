@@ -3,12 +3,12 @@ import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import { defaultTheme, ThemeType } from '../themes';
+import { defaultTheme, ITheme } from '../themes';
 import Hello from './Hello';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+const GlobalStyle = createGlobalStyle<{ theme: ITheme }>`
   ${styledNormalize}
 
   body {
