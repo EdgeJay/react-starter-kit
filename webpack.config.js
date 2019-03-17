@@ -74,6 +74,15 @@ module.exports = {
         },
       },
       {
+        test: /\.tsx?$/,
+        loader: 'tslint-loader',
+        enforce: 'pre',
+        options: {
+          formattersDirectory: 'node_modules/custom-tslint-formatters/formatters',
+          formatter: 'grouped',
+        },
+      },
+      {
         test: /\.js$/,
         loader: 'source-map-loader',
         enforce: 'pre',

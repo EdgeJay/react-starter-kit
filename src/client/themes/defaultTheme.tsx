@@ -1,6 +1,6 @@
 const theme = {
-  fontSize: '16px',
   fontFamily: 'Helvetica Neue',
+  fontSize: '16px',
 };
 
 type ThemeType = typeof theme;

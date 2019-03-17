@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export interface HelloProps {
-  compiler: String;
-  framework: String;
+export interface IHelloProps {
+  compiler: string;
+  framework: string;
 }
 
-export default class Hello extends React.Component<HelloProps, {}> {
+export default class Hello extends React.Component<IHelloProps, {}> {
   render() {
     return (
       <h1>

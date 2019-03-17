@@ -1,17 +1,14 @@
 import * as React from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import defaultTheme, { ThemeType } from '../themes';
+import { defaultTheme, ThemeType } from '../themes';
 import Hello from './Hello';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const GlobalStyle =
-  createGlobalStyle <
-  { theme: ThemeType } >
-  `
+const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   ${styledNormalize}
 
   body {
