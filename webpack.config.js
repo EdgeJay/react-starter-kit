@@ -35,8 +35,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/',
-    filename: `assets/js/[name]${inDevelopmentMode ? '.bundle' : 'bundle.min'}.js`,
-    chunkFilename: `assets/js/[name]${inDevelopmentMode ? '.bundle' : 'bundle.min'}.js`,
+    filename: `assets/js/[name]${inDevelopmentMode ? '.bundle' : '.bundle.min'}.js`,
+    chunkFilename: `assets/js/[name]${inDevelopmentMode ? '.bundle' : '.bundle.min'}.js`,
   },
   module: {
     rules: [
@@ -140,13 +140,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'React Starter Kit',
       template: './src/client/templates/index.html',
+      favicon: './src/client/assets/img/favicon.ico',
+      minify: !inDevelopmentMode,
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  resolve: setupResolve(),
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   devServer: {
     port: 3000,
     hot: true,
   },
   devtool: 'source-map',
-  resolve: setupResolve(),
 };
