@@ -26,6 +26,48 @@ function setupResolve() {
   return resolve;
 }
 
+function getBabelOptions(isBabelLoader = true) {
+  const options = {
+    babelrc: false,
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          targets: {
+            browsers: ['last 2 versions'],
+          },
+          modules: false,
+        },
+      ],
+      '@babel/preset-react',
+    ],
+    plugins: [
+      [
+        'styled-components',
+        {
+          displayName: inDevelopmentMode,
+          ssr: true,
+        },
+      ],
+      '@babel/plugin-transform-react-jsx',
+      '@babel/plugin-transform-runtime',
+      '@babel/plugin-transform-spread',
+      '@babel/proposal-object-rest-spread',
+      '@babel/plugin-syntax-dynamic-import',
+      'react-hot-loader/babel',
+    ],
+  };
+
+  if (isBabelLoader) {
+    // This is a feature of `babel-loader` for webpack (not Babel itself).
+    // It enables caching results in ./node_modules/.cache/babel-loader/
+    // directory for faster rebuilds.
+    options.cacheDirectory = true;
+  }
+
+  return options;
+}
+
 module.exports = {
   target: 'web',
   mode: process.env.NODE_ENV,
@@ -61,6 +103,11 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
+        options: {
+          useBabel: true,
+          babelOptions: getBabelOptions(false),
+          babelCore: '@babel/core',
+        },
       },
       {
         test: /\.js$/,
@@ -92,34 +139,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            // This is a feature of `babel-loader` for webpack (not Babel itself).
-            // It enables caching results in ./node_modules/.cache/babel-loader/
-            // directory for faster rebuilds.
-            cacheDirectory: true,
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  targets: {
-                    browsers: ['last 2 versions'],
-                  },
-                  modules: false,
-                },
-              ],
-              '@babel/preset-react',
-            ],
-            plugins: [
-              'styled-components',
-              '@babel/plugin-transform-react-jsx',
-              '@babel/plugin-transform-runtime',
-              '@babel/plugin-transform-spread',
-              '@babel/proposal-object-rest-spread',
-              '@babel/plugin-syntax-dynamic-import',
-              'react-hot-loader/babel',
-            ],
-          },
+          options: getBabelOptions(),
         },
       },
       {
