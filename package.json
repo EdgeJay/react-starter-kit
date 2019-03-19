@@ -8,7 +8,7 @@
     "build": "npm run clean && NODE_ENV=production webpack",
     "start:build": "http-server ./build -p 3001",
     "start": "webpack-dev-server",
-    "lint": "eslint -c ./.eslintrc.json \"./src/**/*.js\"",
+    "lint": "concurrently --names eslint,tslint \"eslint -c ./.eslintrc.json ./src/**/*.js\" \"tslint -c ./tslint.json ./src/**/*.ts\"",
     "test": "npm run lint && ava"
   },
   "repository": {
@@ -17,6 +17,7 @@
   },
   "keywords": [
     "react",
+    "typescript",
     "styled-components",
     "enzyme",
     "ava"
@@ -63,6 +64,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
+    "concurrently": "^4.1.0",
     "css-loader": "^2.1.0",
     "custom-tslint-formatters": "^2.4.0",
     "enzyme": "^3.8.0",
@@ -85,6 +87,7 @@
     "sinon": "^7.2.3",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "ts-node": "^8.0.3",
     "tslint": "^5.13.1",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
@@ -96,9 +99,17 @@
     "webpack-dev-server": "^3.1.14"
   },
   "ava": {
-    "files": [
-      "**/*.test.js"
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
     ],
-    "require": "@babel/register"
+    "files": [
+      "**/*.test.js",
+      "**/*.test.ts"
+    ],
+    "require": [
+      "@babel/register",
+      "ts-node/register"
+    ]
   }
 }
