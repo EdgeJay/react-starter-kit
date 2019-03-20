@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle<{ theme: ITheme }>`
     font-family: ${props => props.theme.fontFamily};
     min-height: 100%;
   }
+
+  #mount {
+    height: 100vh;
+  }
 `;
 
 function App() {
@@ -35,6 +39,7 @@ function App() {
             { name: 'page-end' },
           ]}
         >
+          {/* Header */}
           <GridItem
             area={{
               rowStart: 'header-top',
@@ -44,6 +49,7 @@ function App() {
             }}
             style={{ backgroundColor: 'darkblue' }}
           />
+          {/* Side Menu */}
           <GridItem
             area={{
               rowStart: 'header-bottom',
@@ -52,6 +58,16 @@ function App() {
               columnEnd: 'sidemenu-right',
             }}
             style={{ backgroundColor: 'darkgrey' }}
+          />
+          {/* Content */}
+          <GridItem
+            area={{
+              rowStart: 'header-bottom',
+              columnStart: 'sidemenu-right',
+              rowEnd: 'page-end',
+              columnEnd: 'header-right',
+            }}
+            style={{ backgroundColor: 'lightgrey' }}
           />
         </GridContainer>
       </React.Fragment>

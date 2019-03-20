@@ -31,7 +31,7 @@ const GridContainer = styled.div<IGridContainerProps>`
   display: grid;
   grid-template-columns: ${({ columns }) => convertToGridTemplateLines(columns)};
   grid-template-rows: ${({ rows }) => convertToGridTemplateLines(rows)};
-  height: 100vh;
+  height: 100%;
 `;
 
 const GridItem = styled.div<IGridItemProps>`
