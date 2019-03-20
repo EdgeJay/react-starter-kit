@@ -1,4 +1,4 @@
 export default {
   fontFamily: 'Helvetica Neue',
-  fontSize: '16px',
+  fontSize: '10px',
 };
