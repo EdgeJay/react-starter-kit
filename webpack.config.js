@@ -2,6 +2,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 
 const nodeEnvAlreadyDefined = !!process.env.NODE_ENV;
 
@@ -11,6 +12,13 @@ if (!nodeEnvAlreadyDefined) {
   dotenv.config();
   inDevelopmentMode = process.env.NODE_ENV === 'development';
 }
+
+const styledComponentsTransformer = createStyledComponentsTransformer({
+  getDisplayName: (filename, bindingName) =>
+    `${path.basename(filename, path.extname(filename))}__${bindingName}`,
+  ssr: true,
+  displayName: inDevelopmentMode,
+});
 
 function setupResolve() {
   const resolve = {
@@ -107,6 +115,7 @@ module.exports = {
           useBabel: true,
           babelOptions: getBabelOptions(false),
           babelCore: '@babel/core',
+          getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
         },
       },
       {
