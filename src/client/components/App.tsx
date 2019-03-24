@@ -1,10 +1,9 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import { defaultTheme, ITheme } from '../themes';
-import { GridItem } from './base/Grid';
 import Header from './base/Header';
 import Page from './base/Page';
 import PageContent from './base/PageContent';
@@ -27,7 +26,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ITheme }>`
 `;
 
 function App() {
-  const [sideMenuOpened, setSideMenuOpened] = React.useState<boolean>(true);
+  const [sideMenuOpened, setSideMenuOpened] = useState<boolean>(true);
 
   const handleSideMenuToggle = () => setSideMenuOpened(!sideMenuOpened);
 

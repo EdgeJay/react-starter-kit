@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { GridItem } from './Grid';
 
 const Sidemenu: React.FunctionComponent<{ children?: React.ReactNode; opened?: boolean }> = ({

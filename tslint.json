@@ -14,6 +14,14 @@
     "member-access": [true, "no-public"],
     "object-literal-sort-keys": {
       "options": "match-declaration-order"
-    }
+    },
+    "import-name": [
+      true,
+      {
+        "react": "React",
+        "reactDom": "ReactDOM",
+        "styledComponents": "styled"
+      }
+    ]
   }
 }

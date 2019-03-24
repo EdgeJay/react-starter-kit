@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { GridContainer } from './Grid';
 
 const Page: React.FunctionComponent<{ children?: React.ReactNode }> = ({ children }) => (
