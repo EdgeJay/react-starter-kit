@@ -23,13 +23,17 @@ const GlobalStyle = createGlobalStyle<{ theme: ITheme }>`
 `;
 
 function App() {
+  const [sideMenuOpened, setSideMenuOpened] = React.useState<boolean>(true);
+
+  const handleSideMenuToggle = () => setSideMenuOpened(!sideMenuOpened);
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <React.Fragment>
         <GlobalStyle />
         <GridContainer
           columns={[
-            { name: 'header-left sidemenu-left', size: '30rem' },
+            { name: 'header-left sidemenu-left', size: 'auto' },
             { name: 'sidemenu-right', size: '1fr' },
             { name: 'header-right' },
           ]}
@@ -57,7 +61,11 @@ function App() {
               rowEnd: 'page-end',
               columnEnd: 'sidemenu-right',
             }}
-            style={{ backgroundColor: 'darkgrey' }}
+            style={{
+              backgroundColor: 'darkgrey',
+              width: sideMenuOpened ? '30rem' : '0rem',
+              transition: 'width 0.3s ease-in-out',
+            }}
           />
           {/* Content */}
           <GridItem
@@ -68,7 +76,9 @@ function App() {
               columnEnd: 'header-right',
             }}
             style={{ backgroundColor: 'lightgrey' }}
-          />
+          >
+            <button onClick={handleSideMenuToggle}>Toggle side menu</button>
+          </GridItem>
         </GridContainer>
       </React.Fragment>
     </ThemeProvider>
