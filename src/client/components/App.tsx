@@ -4,7 +4,11 @@ import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import { defaultTheme, ITheme } from '../themes';
-import { GridContainer, GridItem } from './base/Grid';
+import { GridItem } from './base/Grid';
+import Header from './base/Header';
+import Page from './base/Page';
+import PageContent from './base/PageContent';
+import Sidemenu from './base/Sidemenu';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
@@ -31,55 +35,13 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <React.Fragment>
         <GlobalStyle />
-        <GridContainer
-          columns={[
-            { name: 'header-left sidemenu-left', size: 'auto' },
-            { name: 'sidemenu-right', size: '1fr' },
-            { name: 'header-right' },
-          ]}
-          rows={[
-            { name: 'header-top', size: '8rem' },
-            { name: 'header-bottom', size: '1fr' },
-            { name: 'page-end' },
-          ]}
-        >
-          {/* Header */}
-          <GridItem
-            area={{
-              rowStart: 'header-top',
-              columnStart: 'header-left',
-              rowEnd: 'header-bottom',
-              columnEnd: 'header-right',
-            }}
-            style={{ backgroundColor: 'darkblue' }}
-          />
-          {/* Side Menu */}
-          <GridItem
-            area={{
-              rowStart: 'header-bottom',
-              columnStart: 'sidemenu-left',
-              rowEnd: 'page-end',
-              columnEnd: 'sidemenu-right',
-            }}
-            style={{
-              backgroundColor: 'darkgrey',
-              width: sideMenuOpened ? '30rem' : '0rem',
-              transition: 'width 0.3s ease-in-out',
-            }}
-          />
-          {/* Content */}
-          <GridItem
-            area={{
-              rowStart: 'header-bottom',
-              columnStart: 'sidemenu-right',
-              rowEnd: 'page-end',
-              columnEnd: 'header-right',
-            }}
-            style={{ backgroundColor: 'lightgrey' }}
-          >
+        <Page>
+          <Header />
+          <Sidemenu opened={sideMenuOpened} />
+          <PageContent>
             <button onClick={handleSideMenuToggle}>Toggle side menu</button>
-          </GridItem>
-        </GridContainer>
+          </PageContent>
+        </Page>
       </React.Fragment>
     </ThemeProvider>
   );
