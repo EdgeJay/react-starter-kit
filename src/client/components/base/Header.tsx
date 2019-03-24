@@ -1,18 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+import { ITheme } from '../../themes';
 import { GridItem } from './Grid';
 
+const StyledGridItem = styled(GridItem)`
+  background-color: ${props => props.theme.header.backgroundColor};
+`;
+
 const Header: React.FunctionComponent<{ children?: React.ReactNode }> = ({ children }) => (
-  <GridItem
+  <StyledGridItem
     area={{
       rowStart: 'header-top',
       columnStart: 'header-left',
       rowEnd: 'header-bottom',
       columnEnd: 'header-right',
     }}
-    style={{ backgroundColor: 'darkblue' }}
   >
     {children}
-  </GridItem>
+  </StyledGridItem>
 );
 
 export default Header;
