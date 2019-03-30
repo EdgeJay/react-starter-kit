@@ -1,18 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+import { ITheme } from '../../themes';
 import { GridItem } from './Grid';
 
+const StyledGridItem = styled(GridItem)`
+  background-color: ${(props: { theme: ITheme }) => props.theme.content.backgroundColor};
+`;
+
 const PageContent: React.FunctionComponent<{ children?: React.ReactNode }> = ({ children }) => (
-  <GridItem
+  <StyledGridItem
     area={{
       rowStart: 'header-bottom',
       columnStart: 'sidemenu-right',
       rowEnd: 'page-end',
       columnEnd: 'header-right',
     }}
-    style={{ backgroundColor: 'lightgrey' }}
   >
     {children}
-  </GridItem>
+  </StyledGridItem>
 );
 
 export default PageContent;

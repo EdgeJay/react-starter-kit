@@ -4,7 +4,7 @@ import { ITheme } from '../../themes';
 import { GridItem } from './Grid';
 
 const StyledGridItem = styled(GridItem)`
-  background-color: ${props => props.theme.header.backgroundColor};
+  background-color: ${(props: { theme: ITheme }) => props.theme.header.backgroundColor};
 `;
 
 const Header: React.FunctionComponent<{ children?: React.ReactNode }> = ({ children }) => (
