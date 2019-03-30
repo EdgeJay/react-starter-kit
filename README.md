@@ -8,15 +8,16 @@ Template project to kickstart new React projects
 * Node.js v10.14+
 * React.js v16.8+
 
-### NVM
+### nvm
 
 It is highly recommended to use `nvm` with this project, the `.nvmrc` file is already defined in this project, just run `nvm use` command to switch to required Node.js version.
 
 ## Getting started
 
 1. Copy `/deploy/local/dotenv` file into project root folder and rename to `.env`.
-2. `npm install`
-3. `npm start`
+2. For the GOOGLE_API_KEY field in .env file, you need to provide your own [Google API key](https://developers.google.com/console/help/generating-dev-keys) for the project to work properly. 
+3. `npm install`
+4. `npm start`
 
 ### babelrc
 
