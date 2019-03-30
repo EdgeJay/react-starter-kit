@@ -7,7 +7,7 @@ import defaultTheme from '../themes/defaultTheme';
 import Header from './base/Header';
 import Page from './base/Page';
 import PageContent from './base/PageContent';
-import Sidemenu from './base/Sidemenu';
+import SideMenu from './base/SideMenu';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
@@ -23,6 +23,26 @@ const GlobalStyle = createGlobalStyle`
   #mount {
     height: 100vh;
   }
+
+  h1 {
+    font-size: ${props => props.theme.typo.h1.fontSize};
+  }
+
+  h2 {
+    font-size: ${props => props.theme.typo.h2.fontSize};
+  }
+
+  h3 {
+    font-size: ${props => props.theme.typo.h3.fontSize};
+  }
+
+  h4 {
+    font-size: ${props => props.theme.typo.h4.fontSize};
+  }
+
+  p, button, label {
+    font-size: ${props => props.theme.typo.p.fontSize};
+  }
 `;
 
 function App() {
@@ -36,9 +56,14 @@ function App() {
         <GlobalStyle />
         <Page>
           <Header />
-          <Sidemenu opened={sideMenuOpened} />
+          <SideMenu opened={sideMenuOpened} />
           <PageContent>
             <button onClick={handleSideMenuToggle}>Toggle side menu</button>
+            <h1>The quick brown fox jumps over the lazy dog.</h1>
+            <h2>The quick brown fox jumps over the lazy dog.</h2>
+            <h3>The quick brown fox jumps over the lazy dog.</h3>
+            <h4>The quick brown fox jumps over the lazy dog.</h4>
+            <p>The quick brown fox jumps over the lazy dog.</p>
           </PageContent>
         </Page>
       </React.Fragment>

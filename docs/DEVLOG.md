@@ -1,5 +1,11 @@
 # Development Logs
 
+## 30 Mar 2019
+* Added Google API key
+* Added @babel/preset-typescript
+* Re-org default theme codes to match styled-components recommendations
+* Code refactoring
+
 ## 25 Mar 2019 - Add typescript-plugin-styled-components package
 
 * Added `typescript-plugin-styled-components` package to `webpack.config.js` to ensure `styled-components` settings like `displayName` and `ssr` works fine in Typescript projects
