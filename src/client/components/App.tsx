@@ -3,7 +3,7 @@ import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import { defaultTheme, ITheme } from '../themes';
+import defaultTheme from '../themes/defaultTheme';
 import Header from './base/Header';
 import Page from './base/Page';
 import PageContent from './base/PageContent';
@@ -11,7 +11,7 @@ import Sidemenu from './base/Sidemenu';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const GlobalStyle = createGlobalStyle<{ theme: ITheme }>`
+const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 
   html {

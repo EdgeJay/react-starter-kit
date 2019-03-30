@@ -1,6 +1,6 @@
-import ITheme from './ITheme';
+import { DefaultTheme } from 'styled-components';
 
-export default {
+const defaultTheme: DefaultTheme = {
   fontFamily: 'Helvetica Neue',
   fontSize: '10px',
   header: {
@@ -12,4 +12,6 @@ export default {
   content: {
     backgroundColor: 'lightgrey',
   },
-} as ITheme;
+};
+
+export default defaultTheme;
