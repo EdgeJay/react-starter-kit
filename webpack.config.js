@@ -13,6 +13,9 @@ if (!nodeEnvAlreadyDefined) {
   inDevelopmentMode = process.env.NODE_ENV === 'development';
 }
 
+// define environment variables to be injected into frontend code
+const envVars = ['NODE_ENV', 'GOOGLE_API_KEY'];
+
 const styledComponentsTransformer = createStyledComponentsTransformer({
   getDisplayName: (filename, bindingName) =>
     `${path.basename(filename, path.extname(filename))}__${bindingName}`,
@@ -48,6 +51,7 @@ function getBabelOptions(isBabelLoader = true) {
         },
       ],
       '@babel/preset-react',
+      '@babel/preset-typescript',
     ],
     plugins: [
       [
@@ -166,6 +170,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.EnvironmentPlugin(envVars),
     new HtmlWebpackPlugin({
       title: 'React Starter Kit',
       template: './src/client/templates/index.html',
