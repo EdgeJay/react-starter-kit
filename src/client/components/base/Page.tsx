@@ -9,7 +9,7 @@ const Page: React.FunctionComponent<{ children?: React.ReactNode }> = ({ childre
       { name: 'header-right' },
     ]}
     rows={[
-      { name: 'header-top', size: '8rem' },
+      { name: 'header-top', size: '5rem' },
       { name: 'header-bottom', size: '1fr' },
       { name: 'page-end' },
     ]}

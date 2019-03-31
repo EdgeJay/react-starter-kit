@@ -13,9 +13,9 @@ export const media = (Object.keys(minScreenPixelWidths) as Array<
   keyof typeof minScreenPixelWidths
 >).reduce(
   (acc, label) => {
-    acc[label] = (first: any, ...args: any[]) => css`
-      @media (min-width: ${minScreenPixelWidths[label] / BASE_FONT_PIXEL_SIZE}rem) {
-        ${css(first, args)}
+    acc[label] = (first: any, ...interpolations: any[]) => css`
+      @media (min-width: ${minScreenPixelWidths[label]}px) {
+        ${css(first, ...interpolations)}
       }
     `;
     return acc;

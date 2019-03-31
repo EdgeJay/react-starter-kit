@@ -3,7 +3,7 @@ import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import { defaultTheme } from '../themes';
+import { defaultTheme, media } from '../themes';
 import Header from './base/Header';
 import Page from './base/Page';
 import PageContent from './base/PageContent';
@@ -40,9 +40,23 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.theme.typo.h4.fontSize.phone};
   }
 
-  p, button, label {
+  body, p, button, label {
     font-size: ${props => props.theme.typo.p.fontSize.phone};
   }
+
+  ${media.desktop`
+    h1 {
+      font-size: ${props => props.theme.typo.h1.fontSize.desktop};
+    }
+
+    h2 {
+      font-size: ${props => props.theme.typo.h2.fontSize.desktop};
+    }
+
+    h3 {
+      font-size: ${props => props.theme.typo.h3.fontSize.desktop};
+    }
+  `};
 `;
 
 function App() {

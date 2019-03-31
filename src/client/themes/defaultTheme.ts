@@ -4,13 +4,13 @@ const defaultTheme: DefaultTheme = {
   fontFamily: 'Helvetica Neue',
   fontSize: '10px',
   header: {
-    backgroundColor: 'darkblue',
+    backgroundColor: 'white',
   },
   sideMenu: {
-    backgroundColor: 'darkgrey',
+    backgroundColor: 'lightgrey',
   },
   content: {
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
   },
   typo: {
     h1: {
