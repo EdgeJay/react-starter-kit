@@ -8,6 +8,7 @@
   * Enhanced implementation for Typescript: https://github.com/styled-components/styled-components/issues/2303#issue-393873779
 * Added react-router and react-router-dom
 * Added `routeUtil` to handle components needed for routes and links
+* Active style for nav item
 
 ## 30 Mar 2019
 * Added Google API key
