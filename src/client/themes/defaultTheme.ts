@@ -8,6 +8,7 @@ const defaultTheme: DefaultTheme = {
     height: '5rem',
     nav: {
       itemSpacing: '4rem',
+      textColor: 'black',
       fontSize: {
         phone: '1.6rem',
       },

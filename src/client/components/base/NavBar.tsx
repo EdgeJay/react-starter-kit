@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { getDataForNavItems } from '../../utils/routeUtil';
 
@@ -15,13 +15,29 @@ const Nav = styled.nav`
   box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.75);
 `;
 
-const NavItem = styled(Link)`
+const NavItem = styled(NavLink).attrs(() => ({
+  isActive: match => {
+    if (!match) {
+      return false;
+    }
+    return match.isExact;
+  },
+}))`
+  color: ${props => props.theme.header.nav.textColor};
   text-align: center;
   line-height: 1;
   padding: ${props =>
     `calc((${props.theme.header.height} - ${props.theme.header.nav.fontSize.phone}) / 2) calc(${
       props.theme.header.nav.itemSpacing
     } / 2)`};
+  text-decoration: none;
+
+  &.active,
+  &:hover,
+  &:active {
+    color: ${props => props.theme.header.nav.textColor};
+    font-weight: bold;
+  }
 `;
 
 const NavBar = () => (

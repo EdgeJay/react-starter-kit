@@ -6,6 +6,8 @@
 * Added function to insert media queries
   * Original implementation: https://www.styled-components.com/docs/advanced#media-templates
   * Enhanced implementation for Typescript: https://github.com/styled-components/styled-components/issues/2303#issue-393873779
+* Added react-router and react-router-dom
+* Added `routeUtil` to handle components needed for routes and links
 
 ## 30 Mar 2019
 * Added Google API key

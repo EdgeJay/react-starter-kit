@@ -9,6 +9,7 @@ declare module 'styled-components' {
       height: string;
       nav: {
         itemSpacing: string;
+        textColor: string;
         fontSize: {
           phone: string;
         };
