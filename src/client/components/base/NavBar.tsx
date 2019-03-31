@@ -16,11 +16,11 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled(NavLink).attrs(() => ({
-  isActive: match => {
+  isActive: (match, loc) => {
     if (!match) {
       return false;
     }
-    return match.isExact;
+    return match.isExact || (match.url.length > 0 && loc.pathname.startsWith(match.url)); // tslint:disable-line
   },
 }))`
   color: ${props => props.theme.header.nav.textColor};
