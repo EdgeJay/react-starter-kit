@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
-import { HashRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme, GlobalStyle } from '../themes';
 import { createRoutes } from '../utils/routeUtil';
@@ -18,21 +17,19 @@ function App() {
   const handleSideMenuToggle = () => setSideMenuOpened(!sideMenuOpened);
 
   return (
-    <Router>
-      <ThemeProvider theme={defaultTheme}>
-        <React.Fragment>
-          <GlobalStyle />
-          <Page>
-            <Header />
-            <SideMenu opened={sideMenuOpened} />
-            <PageContent>
-              <button onClick={handleSideMenuToggle}>Toggle side menu</button>
-              {createRoutes()}
-            </PageContent>
-          </Page>
-        </React.Fragment>
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider theme={defaultTheme}>
+      <React.Fragment>
+        <GlobalStyle />
+        <Page>
+          <Header />
+          <SideMenu opened={sideMenuOpened} />
+          <PageContent>
+            <button onClick={handleSideMenuToggle}>Toggle side menu</button>
+            {createRoutes()}
+          </PageContent>
+        </Page>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 

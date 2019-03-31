@@ -9,6 +9,7 @@
 * Added react-router and react-router-dom
 * Added `routeUtil` to handle components needed for routes and links
 * Active style for nav item
+* Added `connected-react-router` for redux bindings for router
 
 ## 30 Mar 2019
 * Added Google API key
