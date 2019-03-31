@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { getDataForNavItems } from '../../utils/routeUtil';
 
 const Nav = styled.nav`
   position: absolute;
@@ -25,9 +26,11 @@ const NavItem = styled(Link)`
 
 const NavBar = () => (
   <Nav>
-    <NavItem to="/">Home</NavItem>
-    <NavItem to="/experiments">Experiments</NavItem>
-    <NavItem to="/contact">Contact</NavItem>
+    {getDataForNavItems().map(({ to, navItemLabel }) => (
+      <NavItem key={to} to={to}>
+        {navItemLabel}
+      </NavItem>
+    ))}
   </Nav>
 );
 
