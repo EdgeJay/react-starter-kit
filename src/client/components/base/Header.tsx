@@ -4,6 +4,8 @@ import { GridItem } from './Grid';
 import NavBar from './NavBar';
 
 const StyledGridItem = styled(GridItem)`
+  display: flex;
+  flex-flow: row nowrap;
   position: relative;
   background-color: ${props => props.theme.header.backgroundColor};
 `;

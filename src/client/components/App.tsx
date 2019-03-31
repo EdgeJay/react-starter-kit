@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import { defaultTheme, media } from '../themes';
@@ -8,6 +9,8 @@ import Header from './base/Header';
 import Page from './base/Page';
 import PageContent from './base/PageContent';
 import SideMenu from './base/SideMenu';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
@@ -72,23 +75,24 @@ function App() {
   const handleSideMenuToggle = () => setSideMenuOpened(!sideMenuOpened);
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <React.Fragment>
-        <GlobalStyle />
-        <Page>
-          <Header />
-          <SideMenu opened={sideMenuOpened} />
-          <PageContent>
-            <button onClick={handleSideMenuToggle}>Toggle side menu</button>
-            <h1>The quick brown fox jumps over the lazy dog.</h1>
-            <h2>The quick brown fox jumps over the lazy dog.</h2>
-            <h3>The quick brown fox jumps over the lazy dog.</h3>
-            <h4>The quick brown fox jumps over the lazy dog.</h4>
-            <p>The quick brown fox jumps over the lazy dog.</p>
-          </PageContent>
-        </Page>
-      </React.Fragment>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={defaultTheme}>
+        <React.Fragment>
+          <GlobalStyle />
+          <Page>
+            <Header />
+            <SideMenu opened={sideMenuOpened} />
+            <PageContent>
+              <button onClick={handleSideMenuToggle}>Toggle side menu</button>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/contact" component={Contact} />
+              </Switch>
+            </PageContent>
+          </Page>
+        </React.Fragment>
+      </ThemeProvider>
+    </Router>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -13,7 +14,7 @@ const Nav = styled.nav`
   box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.75);
 `;
 
-const NavItem = styled.a`
+const NavItem = styled(Link)`
   text-align: center;
   line-height: 1;
   padding: ${props =>
@@ -24,9 +25,9 @@ const NavItem = styled.a`
 
 const NavBar = () => (
   <Nav>
-    <NavItem>Home</NavItem>
-    <NavItem>Experiments</NavItem>
-    <NavItem>Contact</NavItem>
+    <NavItem to="/">Home</NavItem>
+    <NavItem to="/experiments">Experiments</NavItem>
+    <NavItem to="/contact">Contact</NavItem>
   </Nav>
 );
 

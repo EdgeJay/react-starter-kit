@@ -25,6 +25,7 @@
     ],
     "prefer-array-literal": [true, {
       "allow-type-parameters": true
-    }]
+    }],
+    "jsx-boolean-value": false
   }
 }
