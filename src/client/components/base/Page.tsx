@@ -1,7 +1,13 @@
 import React from 'react';
+import { DefaultTheme, withTheme } from 'styled-components';
 import { GridContainer } from './Grid';
 
-const Page: React.FunctionComponent<{ children?: React.ReactNode }> = ({ children }) => (
+interface IPageProps {
+  children?: React.ReactNode;
+  theme: DefaultTheme;
+}
+
+const Page: React.FunctionComponent<IPageProps> = ({ children, theme }) => (
   <GridContainer
     columns={[
       { name: 'header-left sidemenu-left', size: 'auto' },
@@ -9,7 +15,7 @@ const Page: React.FunctionComponent<{ children?: React.ReactNode }> = ({ childre
       { name: 'header-right' },
     ]}
     rows={[
-      { name: 'header-top', size: '5rem' },
+      { name: 'header-top', size: theme.header.height },
       { name: 'header-bottom', size: '1fr' },
       { name: 'page-end' },
     ]}
@@ -18,4 +24,4 @@ const Page: React.FunctionComponent<{ children?: React.ReactNode }> = ({ childre
   </GridContainer>
 );
 
-export default Page;
+export default withTheme<React.FunctionComponent<IPageProps>>(Page);

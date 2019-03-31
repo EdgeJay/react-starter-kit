@@ -6,6 +6,13 @@ declare module 'styled-components' {
     fontSize: string;
     header: {
       backgroundColor: string;
+      height: string;
+      nav: {
+        itemSpacing: string;
+        fontSize: {
+          phone: string;
+        };
+      };
     };
     sideMenu: {
       backgroundColor: string;

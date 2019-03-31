@@ -4,7 +4,14 @@ const defaultTheme: DefaultTheme = {
   fontFamily: 'Helvetica Neue',
   fontSize: '10px',
   header: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
+    height: '5rem',
+    nav: {
+      itemSpacing: '4rem',
+      fontSize: {
+        phone: '1.6rem',
+      },
+    },
   },
   sideMenu: {
     backgroundColor: 'lightgrey',

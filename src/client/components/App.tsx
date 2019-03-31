@@ -18,6 +18,13 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.theme.fontSize};
     font-family: ${props => props.theme.fontFamily};
     min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
   }
 
   #mount {
