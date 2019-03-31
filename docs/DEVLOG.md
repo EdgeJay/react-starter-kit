@@ -1,5 +1,12 @@
 # Development Logs
 
+## 31 Mar 2019
+* Enhance theme to include font sizes for responsive layout, refer to http://typecast.com/blog/a-more-modern-scale-for-web-typography
+* Re-org `themes` folder
+* Added function to insert media queries
+  * Original implementation: https://www.styled-components.com/docs/advanced#media-templates
+  * Enhanced implementation for Typescript: https://github.com/styled-components/styled-components/issues/2303#issue-393873779
+
 ## 30 Mar 2019
 * Added Google API key
 * Added @babel/preset-typescript

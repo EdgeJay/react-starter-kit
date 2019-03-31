@@ -15,19 +15,44 @@ declare module 'styled-components' {
     };
     typo: {
       h1: {
-        fontSize: string;
+        fontSize: {
+          phone: string;
+          tablet?: string;
+          desktop?: string;
+          desktopLarge?: string;
+        };
       };
       h2: {
-        fontSize: string;
+        fontSize: {
+          phone: string;
+          tablet?: string;
+          desktop?: string;
+          desktopLarge?: string;
+        };
       };
       h3: {
-        fontSize: string;
+        fontSize: {
+          phone: string;
+          tablet?: string;
+          desktop?: string;
+          desktopLarge?: string;
+        };
       };
       h4: {
-        fontSize: string;
+        fontSize: {
+          phone: string;
+          tablet?: string;
+          desktop?: string;
+          desktopLarge?: string;
+        };
       };
       p: {
-        fontSize: string;
+        fontSize: {
+          phone: string;
+          tablet?: string;
+          desktop?: string;
+          desktopLarge?: string;
+        };
       };
     };
   }

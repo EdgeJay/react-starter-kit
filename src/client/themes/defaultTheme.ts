@@ -14,19 +14,32 @@ const defaultTheme: DefaultTheme = {
   },
   typo: {
     h1: {
-      fontSize: '3.2rem',
+      fontSize: {
+        phone: '3.2rem',
+        desktop: '4.8rem',
+      },
     },
     h2: {
-      fontSize: '2.6rem',
+      fontSize: {
+        phone: '2.6rem',
+        desktop: '3.6rem',
+      },
     },
     h3: {
-      fontSize: '2.2rem',
+      fontSize: {
+        phone: '2.2rem',
+        desktop: '2.8rem',
+      },
     },
     h4: {
-      fontSize: '1.8rem',
+      fontSize: {
+        phone: '1.8rem',
+      },
     },
     p: {
-      fontSize: '1.6rem',
+      fontSize: {
+        phone: '1.6rem',
+      },
     },
   },
 };

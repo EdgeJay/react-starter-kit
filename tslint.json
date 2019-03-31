@@ -22,6 +22,9 @@
         "reactDom": "ReactDOM",
         "styledComponents": "styled"
       }
-    ]
+    ],
+    "prefer-array-literal": [true, {
+      "allow-type-parameters": true
+    }]
   }
 }
