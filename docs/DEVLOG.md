@@ -1,5 +1,9 @@
 # Development Logs
 
+## 1 Apr 2019
+* Renamed `IAction` in `reducers` folder to `IActionObject` for clearer name
+* Open/close side menu based on whether page has sub nav links
+
 ## 31 Mar 2019
 * Enhance theme to include font sizes for responsive layout, refer to http://typecast.com/blog/a-more-modern-scale-for-web-typography
 * Re-org `themes` folder

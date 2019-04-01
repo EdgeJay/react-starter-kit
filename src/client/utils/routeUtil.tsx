@@ -60,7 +60,19 @@ export function getDataForNavItems(): INavItemData[] {
 
 export function getDataForSubNavItems({ routeKey }: ICreateSubRoutesParams): INavItemData[] {
   const routesForNav = routes.find(route => route.key === routeKey);
-  if (routesForNav) {
+  if (routesForNav && routesForNav.routes.length > 0) {
+    return routesForNav.routes.map(({ key, path, navItemLabel }) => ({
+      key,
+      navItemLabel,
+      to: `${routesForNav.path}${path}`,
+    }));
+  }
+  return null;
+}
+
+export function getSubNavItemsForLocation(pathname: string): INavItemData[] {
+  const routesForNav = routes.find(route => route.path === pathname);
+  if (routesForNav && routesForNav.routes && routesForNav.routes.length > 0) {
     return routesForNav.routes.map(({ key, path, navItemLabel }) => ({
       key,
       navItemLabel,

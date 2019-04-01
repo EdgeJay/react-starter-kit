@@ -11,11 +11,16 @@ declare global {
   }
 }
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   app: {
     currentState: {},
+    sideMenu: {
+      opened: false,
+    },
   },
 };
+
+export type AppInitialState = typeof INITIAL_STATE;
 
 export const history = createHashHistory();
 
@@ -43,5 +48,3 @@ export function bindActions(actions: {}) {
     actions: { ...bindActionCreators(actions, dispatch) },
   });
 }
-
-export { INITIAL_STATE };

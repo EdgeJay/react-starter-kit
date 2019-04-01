@@ -20,7 +20,7 @@ const NavItem = styled(NavLink).attrs(() => ({
     if (!match) {
       return false;
     }
-    return match.isExact || (match.url.length > 0 && loc.pathname.startsWith(match.url)); // tslint:disable-line
+    return match.isExact || (match.url.length > 0 && loc.pathname.startsWith(match.url));
   },
 }))`
   color: ${props => props.theme.header.nav.textColor};

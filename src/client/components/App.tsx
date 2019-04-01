@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
+import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { AppInitialState } from '../store';
 import { defaultTheme, GlobalStyle } from '../themes';
 import { createRoutes } from '../utils/routeUtil';
 import Header from './base/Header';
@@ -11,26 +13,23 @@ import SideMenu from './base/SideMenu';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-function App() {
-  const [sideMenuOpened, setSideMenuOpened] = useState<boolean>(true);
-
-  const handleSideMenuToggle = () => setSideMenuOpened(!sideMenuOpened);
-
+const App: React.FunctionComponent<{ sideMenu: { opened: boolean } }> = ({ sideMenu }) => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <React.Fragment>
         <GlobalStyle />
         <Page>
           <Header />
-          <SideMenu opened={sideMenuOpened} />
-          <PageContent>
-            <button onClick={handleSideMenuToggle}>Toggle side menu</button>
-            {createRoutes()}
-          </PageContent>
+          <SideMenu opened={sideMenu.opened} />
+          <PageContent>{createRoutes()}</PageContent>
         </Page>
       </React.Fragment>
     </ThemeProvider>
   );
-}
+};
 
-export default hot(App);
+const mapProps = (state: AppInitialState) => ({
+  sideMenu: state.app.sideMenu,
+});
+
+export default hot(connect(mapProps)(App));
