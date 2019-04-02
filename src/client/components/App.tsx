@@ -3,7 +3,7 @@ import { setConfig } from 'react-hot-loader';
 import { hot } from 'react-hot-loader/root';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { AppInitialState } from '../store';
+import { IRootInitialState } from '../reducers';
 import { defaultTheme, GlobalStyle } from '../themes';
 import { createRoutes } from '../utils/routeUtil';
 import Header from './base/Header';
@@ -13,7 +13,13 @@ import SideMenu from './base/SideMenu';
 
 setConfig({ logLevel: 'debug', ignoreSFC: false });
 
-const App: React.FunctionComponent<{ sideMenu: { opened: boolean } }> = ({ sideMenu }) => {
+interface IAppProps {
+  sideMenu: {
+    opened: boolean;
+  };
+}
+
+const App: React.FunctionComponent<IAppProps> = ({ sideMenu }) => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <React.Fragment>
@@ -28,7 +34,7 @@ const App: React.FunctionComponent<{ sideMenu: { opened: boolean } }> = ({ sideM
   );
 };
 
-const mapProps = (state: AppInitialState) => ({
+const mapProps = (state: IRootInitialState) => ({
   sideMenu: state.app.sideMenu,
 });
 

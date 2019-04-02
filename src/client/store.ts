@@ -2,7 +2,7 @@ import { routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
 import { applyMiddleware, bindActionCreators, compose, createStore, Dispatch } from 'redux';
 import reduxThunk from 'redux-thunk';
-import { createRootReducer } from './reducers';
+import { createRootReducer, IRootInitialState } from './reducers';
 
 declare global {
   // tslint:disable-next-line interface-name
@@ -11,16 +11,13 @@ declare global {
   }
 }
 
-export const INITIAL_STATE = {
+export const INITIAL_STATE: IRootInitialState = {
   app: {
-    currentState: {},
     sideMenu: {
       opened: false,
     },
   },
 };
-
-export type AppInitialState = typeof INITIAL_STATE;
 
 export const history = createHashHistory();
 

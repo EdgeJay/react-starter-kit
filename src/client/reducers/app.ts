@@ -1,16 +1,19 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
-import { INITIAL_STATE } from '../store';
 import { getSubNavItemsForLocation } from '../utils/routeUtil';
 import IActionObject from './IActionObject';
 
-type AppState = typeof INITIAL_STATE.app;
+export interface IAppInitialState {
+  sideMenu: {
+    opened: boolean;
+  };
+}
 
 interface IAppReducer {
-  [key: string]: (state: {}, action: IActionObject) => AppState;
+  [key: string]: (state: {}, action: IActionObject) => IAppInitialState;
 }
 
 const reducers: IAppReducer = {
-  [LOCATION_CHANGE]: (app: AppState, { payload }) => ({
+  [LOCATION_CHANGE]: (app: IAppInitialState, { payload }) => ({
     ...app,
     sideMenu: {
       ...app.sideMenu,
