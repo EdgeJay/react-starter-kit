@@ -1,4 +1,5 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
+import { Location } from 'history';
 import { getSubNavItemsForLocation } from '../utils/routeUtil';
 import IActionObject from './IActionObject';
 
@@ -12,15 +13,18 @@ interface IAppReducer {
   [key: string]: (state: {}, action: IActionObject) => IAppInitialState;
 }
 
+interface ILocationChangeActionObject extends IActionObject {
+  payload: {
+    location: Location;
+  };
+}
+
 const reducers: IAppReducer = {
-  [LOCATION_CHANGE]: (app: IAppInitialState, { payload }) => ({
+  [LOCATION_CHANGE]: (app: IAppInitialState, { payload }: ILocationChangeActionObject) => ({
     ...app,
     sideMenu: {
       ...app.sideMenu,
-      opened:
-        payload && payload.location
-          ? !!getSubNavItemsForLocation(payload.location.pathname)
-          : false,
+      opened: !!getSubNavItemsForLocation(payload.location.pathname),
     },
   }),
 };
